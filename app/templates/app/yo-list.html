@@ -1,27 +1,34 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="yo-list" attributes="">
-  <template>
+<dom-module name="yo-list" attributes="">
     <link rel="stylesheet" href="yo-list.css">
+    <template>
     <ul>
-      <template id="greeting" repeat="{{ item in items }}">
+      <template id="greeting" is="dom-repeat" items="{{items}}">
         <li>{{ item }}</li>
       </template>
     </ul>
   </template>
+</dom-module>
   <script>
     (function () {
       Polymer({
+        is: "yo-list",
+        properties: {
+          items: {
+            type: Array,
+            notify: true,
+          }
+        },
         ready: function () {
           this.items = [
             'HTML5 Boilerplate',
-            'Web Component Polyfills',<% if (includeCore) { %>
-            'Core Elements',<% } %><% if (includePaper) { %>
-            'Paper Elements',<% } %>
+            'Web Component Polyfills',
+            'Core Elements',
+            'Paper Elements',
             'Polymer'
           ];
         }
       });
     })();
   </script>
-</polymer-element>

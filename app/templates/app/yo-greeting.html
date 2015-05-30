@@ -1,17 +1,24 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<polymer-element name="yo-greeting" attributes="">
-  <template>
+<dom-module name="yo-greeting" attributes="">
     <link rel="stylesheet" href="yo-greeting.css">
-    <h1>{{ greeting }}, {{ greeting }}!</h1>
-    <span>Update text to change the greeting.</span>
-    <input type="text" value="{{ greeting }}">
+  <template>
+    <h1 class="paper-font-display1"><span>{{greeting}}</span>, <span>{{greeting}}</span>!</h1>
+    <span class="paper-font-body2">Update text to change the greeting.</span>
+    <!-- Listens for "input" event and sets greeting to <input>.value -->
+    <input class="paper-font-body2" value="{{greeting::input}}">
   </template>
+</dom-module>
   <script>
     (function () {
       Polymer({
-        greeting: '\'Allo'
+        is: "yo-greeting",
+        properties: {
+            greeting: {
+                type: String,
+                value: '\'Allo',
+                notify: true}
+        }
       });
     })();
   </script>
-</polymer-element>

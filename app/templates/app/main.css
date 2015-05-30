@@ -28,11 +28,11 @@ body {
   padding: 0.2em 0;
 }
 
-[drawer] {
+/*[drawer] {
   background-color: #EEEEEE;
-}
+}*/
 
-core-toolbar {
-  color: #FAFAFA;
-  background-color: #009688;
+paper-toolbar {
+    --paper-toolbar-color="#FAFAFA";
+    --paper-toolbar-background="#009688";
 }
